@@ -1,0 +1,73 @@
+.floating-popup {
+    position: absolute;
+    width: 220px;
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    z-index: 20;
+    font-size: 12px;
+}
+
+.popup-date {
+    text-align: center;
+    font-size: 13px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.no-data {
+    text-align: center;
+    color: #777;
+    margin: 15px 0;
+}
+
+.close-btn {
+    position: absolute;
+    top: 6px;
+    right: 8px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.mini-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 8px;
+}
+
+.mini-table th {
+    text-align: left;
+    font-size: 11px;
+    padding-bottom: 4px;
+    color: #555;
+}
+
+.mini-table td {
+    padding: 4px 0;
+}
+
+.mini-table tr:not(:last-child) {
+    border-bottom: 1px solid #f2f2f2;
+}
+
+
+/* Smooth Animation */
+
+.animate-popup {
+    animation: fadeScale 0.25s ease-out;
+    transform-origin: top left;
+}
+
+@keyframes fadeScale {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(6px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}

@@ -1,0 +1,37 @@
+.reports-page {
+    padding: 30px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.reports-title {
+    margin-bottom: 20px;
+}
+
+.mode-toggle {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.mode-toggle button {
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: none;
+    background: #e5e7eb;
+    cursor: pointer;
+}
+
+.mode-toggle button.active {
+    background: #3b82f6;
+    color: white;
+}
+
+.date-selector {
+    margin-bottom: 30px;
+}
+
+.reports-page {
+    background: #f8fafc;
+    min-height: 100vh;
+}

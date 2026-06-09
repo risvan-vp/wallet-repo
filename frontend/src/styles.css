@@ -1,0 +1,101 @@
+:root {
+    --primary: #4f46e5;
+    --secondary: #22c55e;
+    --danger: #ef4444;
+    --bg: #f9fafb;
+    --card-bg: #ffffff;
+    --text: #111827;
+    --border: #e5e7eb;
+    --radius: 10px;
+}
+
+body {
+    margin: 0;
+    background-color: var(--bg);
+    font-family: "Segoe UI", Tahoma, sans-serif;
+    color: var(--text);
+}
+
+
+/* Dashboard Root */
+
+.dashboard-root {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+}
+
+
+/* Title */
+
+.dashboard-title {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: var(--primary);
+}
+
+
+/* Transaction List */
+
+.transaction-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+
+/* Each Transaction */
+
+.transaction-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--card-bg);
+    padding: 14px 18px;
+    margin-bottom: 10px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.transaction-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+
+/* Amount */
+
+.transaction-item .amount {
+    font-weight: bold;
+    color: var(--danger);
+}
+
+
+/* App Root */
+
+.app-root {
+    min-height: 100vh;
+    background-color: var(--bg);
+}
+
+
+/* Main content */
+
+.app-content {
+    padding-top: 60px;
+    /* space for navbar */
+}
+
+.app-layout {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.app-main {
+    flex: 1;
+    padding: 20px;
+    background: #f8fafc;
+    overflow-y: auto;
+}

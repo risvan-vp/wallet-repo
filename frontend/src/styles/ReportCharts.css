@@ -1,0 +1,414 @@
+/* ================= GLOBAL VARIABLES ================= */
+
+:root {
+    --primary: #4f46e5;
+    --primary-light: #6366f1;
+    --success: #16a34a;
+    --danger: #dc2626;
+    --bg-light: #263747;
+    --card-bg: #863838;
+    --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.05);
+    --shadow-hover: 0 15px 35px rgba(0, 0, 0, 0.08);
+    --radius: 16px;
+}
+
+
+/* ================= SUMMARY CARDS ================= */
+
+.summary-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 22px;
+    max-width: 900px;
+    margin: 0 auto 35px auto;
+}
+
+.card {
+    padding: 20px 24px;
+    border-radius: var(--radius);
+    color: white;
+    box-shadow: var(--shadow-soft);
+    transition: all 0.35s ease;
+    animation: fadeUp 0.5s ease forwards;
+    position: relative;
+    overflow: hidden;
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.card h4 {
+    font-size: 0.95rem;
+    font-weight: 500;
+    opacity: 0.9;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+
+/* Amount */
+
+.card p {
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+
+/* Hover */
+
+.card:hover {
+    transform: translateY(-6px) scale(1.03);
+}
+
+
+/* Type glow */
+
+.income-card:hover {
+    box-shadow: 0 22px 42px rgba(34, 197, 94, 0.35);
+}
+
+.expense-card:hover {
+    box-shadow: 0 22px 42px rgba(239, 68, 68, 0.35);
+}
+
+.balance-card:hover {
+    box-shadow: 0 22px 42px rgba(99, 102, 241, 0.35);
+}
+
+
+/* ================= PREMIUM CARD HOVER EFFECT ================= */
+
+.card {
+    position: relative;
+    overflow: hidden;
+}
+
+
+/* Smooth scale + glow */
+
+.card:hover {
+    transform: translateY(-8px) scale(1.02);
+}
+
+
+/* Type based glow */
+
+.income-card:hover {
+    box-shadow: 0 20px 40px rgba(34, 197, 94, 0.35);
+}
+
+.expense-card:hover {
+    box-shadow: 0 20px 40px rgba(239, 68, 68, 0.35);
+}
+
+.balance-card:hover {
+    box-shadow: 0 20px 40px rgba(99, 102, 241, 0.35);
+}
+
+
+/* Gradient animation */
+
+.income-card:hover {
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+}
+
+.expense-card:hover {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+}
+
+.balance-card:hover {
+    background: linear-gradient(135deg, #6366f1, #4f46e5);
+}
+
+
+/* Shine sweep effect */
+
+.card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient( 120deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.2));
+    transform: skewX(-25deg);
+}
+
+.card:hover::before {
+    animation: shine 0.9s ease forwards;
+}
+
+@keyframes shine {
+    100% {
+        left: 125%;
+    }
+}
+
+.income-card {
+    background: linear-gradient(135deg, #16a34a, #22c55e);
+}
+
+.expense-card {
+    background: linear-gradient(135deg, #dc2626, #ef4444);
+}
+
+.balance-card {
+    background: linear-gradient(135deg, #4f46e5, #6366f1);
+}
+
+
+/* ================= CHART BOX ================= */
+
+.chart-box {
+    background: var(--card-bg);
+    padding: 25px;
+    border-radius: var(--radius);
+    margin-bottom: 30px;
+    box-shadow: var(--shadow-soft);
+    transition: 0.3s ease;
+}
+
+.chart-box:hover {
+    box-shadow: var(--shadow-hover);
+}
+
+
+/* ================= TABLE ================= */
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+.report-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-soft);
+}
+
+.report-table th {
+    background: #f1f5f9;
+    padding: 15px;
+    text-align: left;
+    font-weight: 600;
+}
+
+.report-table td {
+    padding: 15px;
+    border-top: 1px solid #f1f5f9;
+    transition: 0.2s ease;
+}
+
+.report-table tr:hover {
+    background: #f9fafb;
+}
+
+.income-row td:first-child {
+    color: var(--success);
+    font-weight: 600;
+}
+
+.expense-row td:first-child {
+    color: var(--danger);
+    font-weight: 600;
+}
+
+
+/* ================= BUTTONS ================= */
+
+.edit-btn,
+.delete-btn {
+    padding: 6px 12px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    margin-right: 6px;
+    transition: 0.25s ease;
+    font-weight: 500;
+}
+
+.edit-btn {
+    background: #3b82f6;
+    color: white;
+}
+
+.delete-btn {
+    background: #ef4444;
+    color: white;
+}
+
+.edit-btn:hover,
+.delete-btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+
+/* ================= MODAL ================= */
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.45);
+    backdrop-filter: blur(4px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease;
+    z-index: 999;
+}
+
+.modal {
+    background: white;
+    padding: 28px;
+    border-radius: var(--radius);
+    width: 380px;
+    box-shadow: var(--shadow-hover);
+    animation: fadeUp 0.3s ease;
+}
+
+.modal input {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 11px;
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+    transition: 0.2s ease;
+}
+
+.modal input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+    outline: none;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.modal-actions .save {
+    background: var(--success);
+    color: white;
+    border: none;
+    padding: 7px 14px;
+    border-radius: 8px;
+}
+
+
+/* ================= GLASS DATE PICKER ================= */
+
+.glass-date-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.calendar-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--primary);
+    font-size: 16px;
+    pointer-events: none;
+}
+
+.glass-date-input {
+    width: 100%;
+    padding: 10px 12px 10px 36px;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    background: #e4e7eb;
+    transition: 0.3s ease;
+}
+
+.glass-date-input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(217, 217, 231, 0.87);
+    outline: none;
+}
+
+.glass-calendar {
+    border-radius: 16px !important;
+    border: 1px solid #8394b6 !important;
+    box-shadow: var(--shadow-hover);
+    animation: fadeIn 0.25s ease-in-out;
+}
+
+.react-datepicker__day--selected,
+.react-datepicker__day--keyboard-selected {
+    background: var(--primary-light) !important;
+    border-radius: 8px !important;
+}
+
+.react-datepicker__day:hover {
+    background: rgba(99, 102, 241, 0.25) !important;
+    border-radius: 8px !important;
+}
+
+
+/* ================= ANIMATIONS ================= */
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* ================= FLOATING MICRO MOVEMENT ================= */
+
+.card {
+    animation: floatCard 4s ease-in-out infinite;
+}
+
+
+/* Different delay so they don't move same time */
+
+.income-card {
+    animation-delay: 0s;
+}
+
+.expense-card {
+    animation-delay: 0.6s;
+}
+
+.balance-card {
+    animation-delay: 1.2s;
+}
+
+
+/* Floating animation */
+
+@keyframes floatCard {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-4px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}

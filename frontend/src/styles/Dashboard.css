@@ -1,0 +1,236 @@
+.dashboard-root {
+    padding: 24px 20px;
+    background: #f9fafb;
+    min-height: 100vh;
+    font-family: 'Inter', sans-serif;
+}
+
+
+/* Title */
+
+.dashboard-title {
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 20px;
+}
+
+
+/* Add Transaction Row */
+
+.add-transaction-row {
+    display: flex;
+    justify-content: flex-end;
+    /* Moves the "+" button to right */
+    margin-bottom: 20px;
+}
+
+
+/* Latest Transactions Box */
+
+.latest-box {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.latest-box h4 {
+    margin-bottom: 12px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #111827;
+}
+
+.latest-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 320px;
+    overflow-y: auto;
+}
+
+.latest-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 8px;
+    border-bottom: 1px solid #eee;
+}
+
+.latest-item .category {
+    font-weight: 500;
+    color: #374151;
+}
+
+.latest-item .description {
+    font-size: 0.85rem;
+    color: #6b7280;
+    margin-top: 2px;
+}
+
+.latest-item .date {
+    font-size: 0.75rem;
+    color: #9ca3af;
+    margin-top: 2px;
+}
+
+.right-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+.amount.expense {
+    color: #dc2626;
+    font-weight: 600;
+}
+
+.amount.income {
+    color: #16a34a;
+    font-weight: 600;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+
+/* ================= MODAL ================= */
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 50;
+}
+
+.modal {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    width: 360px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: space-between;
+}
+
+.modal-actions .save {
+    background: #16a34a;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 8px;
+}
+
+
+/* ================= GLASS DATE INPUT ================= */
+
+.glass-date-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.calendar-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #4f46e5;
+    font-size: 16px;
+    pointer-events: none;
+}
+
+.glass-date-input {
+    width: 100%;
+    padding: 10px 12px 10px 36px;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    background: #f9fafb;
+    backdrop-filter: blur(12px);
+    color: #0a0c0f;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.glass-date-input:focus {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.3);
+}
+
+
+/* ================= GLASS CALENDAR ================= */
+
+.glass-calendar {
+    background: rgba(205, 213, 226, 0.85) !important;
+    backdrop-filter: blur(18px);
+    border-radius: 16px !important;
+    border: 1px solid rgb(241, 235, 235) !important;
+    padding: 10px !important;
+    animation: fadeIn 0.25s ease-in-out;
+}
+
+.react-datepicker__day--selected,
+.react-datepicker__day--keyboard-selected {
+    background: #78799b !important;
+    border-radius: 8px !important;
+}
+
+.react-datepicker__day:hover {
+    background: rgba(99, 102, 241, 0.3) !important;
+    border-radius: 8px !important;
+}
+
+
+/* ================= ANIMATIONS ================= */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+    .latest-box {
+        max-width: 100%;
+        padding: 12px;
+    }
+}
+
+.latest-item.highlight {
+    animation: highlightAnim 2s ease;
+}
+
+@keyframes highlightAnim {
+    0% {
+        background: #fef3c7;
+    }
+    50% {
+        background: #fde68a;
+    }
+    100% {
+        background: white;
+    }
+}
