@@ -55,24 +55,44 @@
 /* CATEGORY SELECT + BUTTON */
 
 .category-wrapper {
-    position: relative;
     display: flex;
     align-items: center;
+    gap: 8px;
+    margin-bottom: 14px;
+    padding: 0 8px 0 0;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    background: #f9fafb;
+    transition: all 0.2s ease;
+}
+
+.category-wrapper:focus-within {
+    border-color: #2563eb;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
 }
 
 .category-wrapper select {
-    padding-right: 45px;
+    flex: 1;
+    min-width: 0;
+    margin-bottom: 0;
+    border: none;
+    background: transparent;
+    box-shadow: none;
+}
+
+.category-wrapper select:focus {
+    border-color: transparent;
+    background: transparent;
+    box-shadow: none;
 }
 
 .add-category-mini {
-    position: absolute;
-    right: 12px;
-    top: 50%;
-    transform: translateY(-50%);
     background: #f3f4f6;
-    border: none;
-    width: 28px;
-    height: 28px;
+    border: 1px solid #e0e7ff;
+    width: 32px;
+    height: 32px;
+    flex: 0 0 32px;
     border-radius: 8px;
     font-size: 18px;
     font-weight: 600;
@@ -86,80 +106,5 @@
 
 .add-category-mini:hover {
     background: #e0e7ff;
-    transform: translateY(-50%) scale(1.1);
-}
-
-
-/* ================= GLASS DATE INPUT ================= */
-
-.glass-date-wrapper {
-    position: relative;
-    width: 100%;
-}
-
-.calendar-icon {
-    position: absolute;
-    left: 12px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #4f46e5;
-    font-size: 16px;
-    pointer-events: none;
-}
-
-.glass-date-input {
-    width: 100%;
-    padding: 12px 14px 12px 38px;
-    border-radius: 12px;
-    border: 1px solid #e5e7eb;
-    background: #f9fafb;
-    color: #111827;
-    font-size: 0.95rem;
-    transition: all 0.25s ease;
-}
-
-.glass-date-input:focus {
-    outline: none;
-    border-color: #2563eb;
-    background: white;
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-}
-
-.glass-date-input:focus {
-    border-color: #6366f1;
-    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.3);
-}
-
-
-/* ================= GLASS CALENDAR ================= */
-
-.glass-calendar {
-    background: rgba(30, 41, 59, 0.85) !important;
-    backdrop-filter: blur(18px);
-    border-radius: 16px !important;
-    border: 1px solid rgba(255, 255, 255, 0.15) !important;
-    padding: 10px !important;
-    animation: fadeIn 0.25s ease-in-out;
-}
-
-.react-datepicker__day--selected,
-.react-datepicker__day--keyboard-selected {
-    background: #6366f1 !important;
-    border-radius: 8px !important;
-}
-
-.react-datepicker__day:hover {
-    background: rgba(99, 102, 241, 0.3) !important;
-    border-radius: 8px !important;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-8px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    transform: scale(1.04);
 }

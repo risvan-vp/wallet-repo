@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import API from "../services/api";
-import DatePicker from "react-datepicker";
-import { FaCalendarAlt } from "react-icons/fa";
-import "react-datepicker/dist/react-datepicker.css";
+import TransactionDateInput from "./TransactionDateInput";
 import "../styles/AddTransaction.css";
 
 function AddTransaction({ refresh, openCategory }) {
@@ -16,13 +14,19 @@ function AddTransaction({ refresh, openCategory }) {
     date: today,
   });
 
-  const loadCategories = async () => {
-    const res = await API.get("/categories");
-    setCategories(res.data);
-  };
-
   useEffect(() => {
-    loadCategories();
+    let isMounted = true;
+
+    const fetchCategories = async () => {
+      const res = await API.get("/categories");
+      if (isMounted) setCategories(res.data);
+    };
+
+    fetchCategories();
+
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   const submit = async (e) => {
@@ -77,6 +81,7 @@ function AddTransaction({ refresh, openCategory }) {
         <button
           type="button"
           className="add-category-mini"
+          aria-label="Add category"
           onClick={() =>
             openCategory((newCat) => setCategories((prev) => [...prev, newCat]))
           }
@@ -99,17 +104,10 @@ function AddTransaction({ refresh, openCategory }) {
         onChange={(e) => setData({ ...data, description: e.target.value })}
       />
 
-      <div className="glass-date-wrapper">
-        <FaCalendarAlt className="calendar-icon" />
-        <DatePicker
-          selected={data.date}
-          onChange={(date) => setData({ ...data, date })}
-          dateFormat="dd/MM/yyyy"
-          className="glass-date-input"
-          popperClassName="glass-calendar"
-          calendarClassName="glass-calendar"
-        />
-      </div>
+      <TransactionDateInput
+        selected={data.date}
+        onChange={(date) => setData({ ...data, date })}
+      />
 
       <button type="submit">Add Transaction</button>
     </form>

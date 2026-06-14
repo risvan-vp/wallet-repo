@@ -1,0 +1,83 @@
+.transaction-date-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.transaction-date-icon-btn {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s ease;
+    z-index: 1;
+}
+
+.transaction-date-icon-btn:hover {
+    background: rgba(79, 70, 229, 0.08);
+}
+
+.transaction-date-icon-btn:focus {
+    outline: none;
+    background: rgba(79, 70, 229, 0.1);
+    box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.18);
+}
+
+.transaction-date-icon {
+    color: var(--primary, #4f46e5);
+    font-size: 16px;
+}
+
+.transaction-date-input {
+    width: 100%;
+    padding: 10px 38px 10px 12px;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    background: #e4e7eb;
+    color: #111827;
+    font-size: 0.95rem;
+    transition: 0.3s ease;
+}
+
+.transaction-date-input:focus {
+    outline: none;
+    border-color: var(--primary, #4f46e5);
+    box-shadow: 0 0 0 3px rgba(217, 217, 231, 0.87);
+}
+
+.transaction-calendar {
+    border-radius: 16px !important;
+    border: 1px solid #8394b6 !important;
+    box-shadow: var(--shadow-hover, 0 15px 35px rgba(0, 0, 0, 0.08));
+    animation: fadeIn 0.25s ease-in-out;
+}
+
+.react-datepicker__day--selected,
+.react-datepicker__day--keyboard-selected {
+    background: var(--primary-light, #6366f1) !important;
+    border-radius: 8px !important;
+}
+
+.react-datepicker__day:hover {
+    background: rgba(99, 102, 241, 0.3) !important;
+    border-radius: 8px !important;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
